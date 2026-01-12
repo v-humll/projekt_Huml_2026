@@ -1,4 +1,4 @@
-package src.commands;
+package Commands;
 
 public class UnknownCommand extends Command {
 
