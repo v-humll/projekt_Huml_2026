@@ -1,5 +1,11 @@
 package Commands;
 
-public class UtokCommand extends Command {
+import game.Game;
 
+public class UtokCommand implements Command {
+
+    @Override
+    public void execute(Game game, String[] args) {
+
+    }
 }
