@@ -1,0 +1,153 @@
+{
+    "items": [
+        {
+            "id": "item_flashlight",
+            "name": "Baterka",
+            "type": "tool",
+            "description": "Stará, ale funkční baterka. Nutnost pro tmavé lokace."
+        },
+        {
+            "id": "item_key_universal",
+            "name": "Univerzální klíč",
+            "type": "key",
+            "description": "Klíč údržbáře, který otevírá většinu dveří."
+        },
+        {
+            "id": "item_weapon",
+            "name": "Služební zbraň",
+            "type": "weapon",
+            "description": "Standardní policejní pistole. Munice je vzácná."
+        },
+        {
+            "id": "item_file_1998",
+            "name": "Spis č. 1998",
+            "type": "quest",
+            "description": "Nekompletní složka s označením Případ 1998."
+        },
+        {
+            "id": "item_recorder",
+            "name": "Diktafon",
+            "type": "quest",
+            "description": "Diktafon s nahrávkou, která odhaluje pravdu."
+        },
+        {
+            "id": "item_medkit",
+            "name": "Lékárnička",
+            "type": "consumable",
+            "description": "Jednorázové doplnění zdraví."
+        },
+        {
+            "id": "item_ammo",
+            "name": "Munice",
+            "type": "consumable",
+            "description": "Náboje do služební zbraně."
+        },
+        {
+            "id": "item_badge",
+            "name": "Krvavý odznak",
+            "type": "quest",
+            "description": "Klíčový důkaz spojovaný s případem z roku 1998."
+        }
+    ],
+    "characters": [
+        {
+            "id": "char_kohout",
+            "name": "Údržbář Kohout",
+            "role": "npc",
+            "homeLocationId": "loc_sklep",
+            "notes": "Mrzutý pamětník. Slouží jako zdroj nábojů a informací."
+        },
+        {
+            "id": "char_cernohorsky",
+            "name": "Detektiv Černohorský",
+            "role": "enemy",
+            "homeLocationId": "loc_cely",
+            "notes": "Zkorumpovaná troska. Hlavní antagonista."
+        }
+    ],
+    "locations": [
+        {
+            "id": "loc_recepce",
+            "name": "Recepce",
+            "description": "Tmavý prostor se zamčeným hlavním vchodem. Slouží jako úvodní orientační bod.",
+            "neighbors": {
+                "sever": "loc_chodba",
+                "jih": "loc_sklep",
+                "východ": "loc_satny"
+            },
+            "lootTable": [
+                "item_flashlight"
+            ]
+        },
+        {
+            "id": "loc_chodba",
+            "name": "Chodba",
+            "description": "Spojnice mezi jednotlivými místnostmi. Neutrální, ale nebezpečný prostor.",
+            "neighbors": {
+                "jih": "loc_recepce",
+                "západ": "loc_kancelar",
+                "východ": "loc_archiv"
+            },
+            "lootTable": []
+        },
+        {
+            "id": "loc_satny",
+            "name": "Šatny",
+            "description": "Zanedbaná místnost plná osobních věcí bývalých policistů.",
+            "neighbors": {
+                "západ": "loc_recepce"
+            },
+            "lootTable": [
+                "item_key_universal",
+                "item_medkit"
+            ]
+        },
+        {
+            "id": "loc_sklep",
+            "name": "Sklep",
+            "description": "Technická část budovy s generátorem a pojistkami.",
+            "neighbors": {
+                "sever": "loc_recepce",
+                "západ": "loc_cely"
+            },
+            "lootTable": [
+                "item_ammo"
+            ]
+        },
+        {
+            "id": "loc_archiv",
+            "name": "Archiv",
+            "description": "Klíčová příběhová lokace. Bez baterky nepřístupná.",
+            "neighbors": {
+                "západ": "loc_chodba"
+            },
+            "lootTable": [
+                "item_file_1998"
+            ]
+        },
+        {
+            "id": "loc_kancelar",
+            "name": "Kancelář náčelníka",
+            "description": "Luxusní místnost, definice korupce. Obsahuje trezor.",
+            "neighbors": {
+                "východ": "loc_chodba"
+            },
+            "lootTable": [
+                "item_recorder",
+                "item_weapon"
+            ]
+        },
+        {
+            "id": "loc_cely",
+            "name": "Cely a Výslechová",
+            "description": "Klaustrofobní prostředí určené pro finální konfrontaci.",
+            "neighbors": {
+                "východ": "loc_sklep"
+            },
+            "lootTable": [
+                "item_badge"
+            ]
+        }
+    ],
+    "quests": []
+}
