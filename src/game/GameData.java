@@ -57,4 +57,19 @@ public class GameData {
         }
         throw new IllegalArgumentException("Neexistuje lokace s id: " + id);
     }
+
+    /**
+     * Looks for one item using its ID or name.
+     * ID is the identifier or name for the desired item.
+     * Returns the item that matches.
+     */
+    public Item findItem(String id) {
+        if (items == null) return null;
+        for (Item i : items) {
+            if (i.getId().equals(id) || i.getName().equalsIgnoreCase(id)) {
+                return i;
+            }
+        }
+        return null;
+    }
 }

@@ -9,6 +9,58 @@ public class Game {
     private Player player;
     private boolean gameOver;
     private java.util.Map<String, Commands.Command> commands;
+    
+    // Boss fight state
+    private boolean bossFightActive;
+    private int bossHp;
+    private int playerHp;
+    private boolean playerDefending;
+    private final int MAX_BOSS_HP = 50; // Example
+    private final int MAX_PLAYER_HP = 100; // Example
+
+    public boolean isPlayerDefending() {
+        return playerDefending;
+    }
+
+    public void setPlayerDefending(boolean defending) {
+        this.playerDefending = defending;
+    }
+
+    public boolean isBossFightActive() {
+        return bossFightActive;
+    }
+
+    public void startBossFight() {
+        this.bossFightActive = true;
+        this.bossHp = MAX_BOSS_HP;
+        this.playerHp = MAX_PLAYER_HP;
+    }
+
+    public int getBossHp() {
+        return bossHp;
+    }
+
+    public int getPlayerHp() {
+        return playerHp;
+    }
+
+    public void damageBoss(int amount) {
+        this.bossHp -= amount;
+        if (this.bossHp < 0) this.bossHp = 0;
+    }
+
+    public void damagePlayer(int amount) {
+        this.playerHp -= amount;
+        if (this.playerHp < 0) this.playerHp = 0;
+    }
+
+    public void setGameOver(boolean gameOver) {
+        this.gameOver = gameOver;
+    }
+    
+    public java.util.Map<String, Commands.Command> getCommandsMap() {
+        return commands;
+    }
 
     public GameData getWorld() {
         return world;
@@ -40,6 +92,17 @@ public class Game {
         
         commands = new java.util.HashMap<>();
         commands.put("jdi", new Commands.JdiCommand());
+        commands.put("napoveda", new Commands.NapovedaCommand());
+        commands.put("konec", new Commands.KonecCommand());
+        commands.put("inventar", new Commands.InventarCommand());
+        commands.put("vezmi", new Commands.VezmiCommand());
+        commands.put("pouzij", new Commands.PouzijCommand());
+        commands.put("prozkoumej", new Commands.ProzkoumejCommand());
+        commands.put("rozhlednise", new Commands.RozhledniSeCommand());
+        commands.put("mluv", new Commands.MluvCommand());
+        commands.put("utok", new Commands.UtokCommand());
+        commands.put("kryjse", new Commands.KryjSeCommand());
+        commands.put("prebit", new Commands.PrebitCommand());
     }
 
     /**

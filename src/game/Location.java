@@ -11,6 +11,10 @@ public class Location {
     private Map<String, String> neighbors; // Direction -> Location ID
     private ArrayList<String> lootTable;
 
+    public ArrayList<String> getLootTable() {
+        return lootTable;
+    }
+
     public String getId() {
         return id;
     }
