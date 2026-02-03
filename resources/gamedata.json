@@ -73,7 +73,7 @@
             "neighbors": {
                 "sever": "loc_chodba",
                 "jih": "loc_sklep",
-                "východ": "loc_satny"
+                "vychod": "loc_satny"
             },
             "lootTable": [
                 "item_flashlight"
@@ -85,8 +85,8 @@
             "description": "Spojnice mezi jednotlivými místnostmi. Neutrální, ale nebezpečný prostor.",
             "neighbors": {
                 "jih": "loc_recepce",
-                "západ": "loc_kancelar",
-                "východ": "loc_archiv"
+                "zapad": "loc_kancelar",
+                "vychod": "loc_archiv"
             },
             "lootTable": []
         },
@@ -95,7 +95,7 @@
             "name": "Šatny",
             "description": "Zanedbaná místnost plná osobních věcí bývalých policistů.",
             "neighbors": {
-                "západ": "loc_recepce"
+                "zapad": "loc_recepce"
             },
             "lootTable": [
                 "item_key_universal",
@@ -108,7 +108,7 @@
             "description": "Technická část budovy s generátorem a pojistkami.",
             "neighbors": {
                 "sever": "loc_recepce",
-                "západ": "loc_cely"
+                "zapad": "loc_cely"
             },
             "lootTable": [
                 "item_ammo"
@@ -119,7 +119,7 @@
             "name": "Archiv",
             "description": "Klíčová příběhová lokace. Bez baterky nepřístupná.",
             "neighbors": {
-                "západ": "loc_chodba"
+                "zapad": "loc_chodba"
             },
             "lootTable": [
                 "item_file_1998"
@@ -130,7 +130,7 @@
             "name": "Kancelář náčelníka",
             "description": "Luxusní místnost, definice korupce. Obsahuje trezor.",
             "neighbors": {
-                "východ": "loc_chodba"
+                "vychod": "loc_chodba"
             },
             "lootTable": [
                 "item_recorder",
@@ -142,7 +142,7 @@
             "name": "Cely a Výslechová",
             "description": "Klaustrofobní prostředí určené pro finální konfrontaci.",
             "neighbors": {
-                "východ": "loc_sklep"
+                "vychod": "loc_sklep"
             },
             "lootTable": [
                 "item_badge"

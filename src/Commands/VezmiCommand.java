@@ -1,6 +1,7 @@
 package Commands;
 
 import game.Game;
+import game.Player;
 
 public class VezmiCommand implements Command {
 
@@ -14,23 +15,38 @@ public class VezmiCommand implements Command {
         String target = args[1];
         game.Location loc = game.getPlayer().getLocation();
         java.util.List<String> loot = loc.getLootTable();
+        String itemToRemove = null;
+        game.Item foundItem = null;
 
-        if (loot == null || !loot.contains(target)) {
+        if (loot != null) {
+            for (String itemId : loot) {
+                game.Item it = game.getWorld().findItem(itemId);
+                if (it != null && (it.getName().equalsIgnoreCase(target) || it.getId().equalsIgnoreCase(target))) {
+                    foundItem = it;
+                    itemToRemove = itemId;
+                    break;
+                }
+            }
+        }
+
+        if (foundItem == null) {
             System.out.println("To tu není.");
             return;
         }
 
-        game.Item item = game.getWorld().findItem(target);
-
-        if (item.getName().equalsIgnoreCase("munice") || item.getId().contains("munice")) {
+        if (foundItem.getName().equalsIgnoreCase("munice") || foundItem.getId().contains("munice")) {
             System.out.println("Sebral jsi munici.");
-            game.getPlayer().addAmmo(5); 
+            game.getPlayer().addAmmo(5);
             System.out.println("+5 nábojů do rezervy.");
         } else {
-            System.out.println("Sebral jsi: " + item.getName());
-            game.getPlayer().addItem(item);
+            if (game.getPlayer().getInventory().size() >= Player.MAX_INVENTORY_SIZE) {
+                System.out.println("Tvůj inventář je plný! (Max " + Player.MAX_INVENTORY_SIZE + " předmětů)");
+                return;
+            }
+            System.out.println("Sebral jsi: " + foundItem.getName());
+            game.getPlayer().addItem(foundItem);
         }
 
-        loot.remove(target);
+        loot.remove(itemToRemove);
     }
 }

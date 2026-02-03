@@ -7,18 +7,19 @@ public class Player {
     private int ammoReserve;
     private int currentMagazine;
     private final int MAX_MAGAZINE = 3;
+    public static final int MAX_INVENTORY_SIZE = 5;
 
     public Player() {
         this.inventory = new java.util.ArrayList<>();
         this.ammoReserve = 0;
-        this.currentMagazine = MAX_MAGAZINE; 
-        this.currentMagazine = 3; 
+        this.currentMagazine = MAX_MAGAZINE;
+        this.currentMagazine = 3;
     }
 
     public void setLocation(Location location) {
         this.location = location;
     }
-    
+
     public Location getLocation() {
         return location;
     }

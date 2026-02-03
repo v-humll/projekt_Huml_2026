@@ -9,7 +9,7 @@ public class Game {
     private Player player;
     private boolean gameOver;
     private java.util.Map<String, Commands.Command> commands;
-    
+
     // Boss fight state
     private boolean bossFightActive;
     private int bossHp;
@@ -46,18 +46,20 @@ public class Game {
 
     public void damageBoss(int amount) {
         this.bossHp -= amount;
-        if (this.bossHp < 0) this.bossHp = 0;
+        if (this.bossHp < 0)
+            this.bossHp = 0;
     }
 
     public void damagePlayer(int amount) {
         this.playerHp -= amount;
-        if (this.playerHp < 0) this.playerHp = 0;
+        if (this.playerHp < 0)
+            this.playerHp = 0;
     }
 
     public void setGameOver(boolean gameOver) {
         this.gameOver = gameOver;
     }
-    
+
     public java.util.Map<String, Commands.Command> getCommandsMap() {
         return commands;
     }
@@ -77,19 +79,19 @@ public class Game {
      * Also prepares the command "jdi".
      */
 
-    public void inicialization(){
+    public void inicialization() {
         world = GameData.loadGameDataFromResources("/gamedata.json");
         player = new Player();
 
         if (world.locations != null && !world.locations.isEmpty()) {
-             try {
-                 player.setLocation(world.findLocation("loc_recepce"));
-             } catch (IllegalArgumentException e) {
-                 player.setLocation(world.locations.get(0));
-             }
+            try {
+                player.setLocation(world.findLocation("loc_recepce"));
+            } catch (IllegalArgumentException e) {
+                player.setLocation(world.locations.get(0));
+            }
         }
         gameOver = false;
-        
+
         commands = new java.util.HashMap<>();
         commands.put("jdi", new Commands.JdiCommand());
         commands.put("napoveda", new Commands.NapovedaCommand());
@@ -103,15 +105,17 @@ public class Game {
         commands.put("utok", new Commands.UtokCommand());
         commands.put("kryjse", new Commands.KryjSeCommand());
         commands.put("prebit", new Commands.PrebitCommand());
+        commands.put("poloz", new Commands.PolozCommand());
     }
 
     /**
      * Main loop for the game.
-     * First it activates inicialization which loads everything and shows welcome message.
+     * First it activates inicialization which loads everything and shows welcome
+     * message.
      * Then it keeps asking player for commands until game is over.
      */
 
-    public void start(){
+    public void start() {
         inicialization();
         System.out.println("Hra začala!");
         if (player.getLocation() != null) {
@@ -127,12 +131,12 @@ public class Game {
         }
     }
 
-/**
- * Reads the input and finds which command to run.
- * First it cleans the text and checks if you want to stop with "konec".
- * Then it looks in the map for the command.
- * If it finds it, it runs it. If not, it says it does not know the word.
- */
+    /**
+     * Reads the input and finds which command to run.
+     * First it cleans the text and checks if you want to stop with "konec".
+     * Then it looks in the map for the command.
+     * If it finds it, it runs it. If not, it says it does not know the word.
+     */
 
     public void processCommand(String input) {
         String[] parts = input.trim().split(" ", 2);
@@ -150,6 +154,5 @@ public class Game {
             System.out.println("Neznámý příkaz.");
         }
     }
-
 
 }
