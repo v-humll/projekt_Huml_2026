@@ -8,15 +8,20 @@ public class PrebitCommand implements Command {
     @Override
     public void execute(Game game, String[] args) {
         if (!game.isBossFightActive()) {
-            System.out.println("Není důvod nabíjet. (Bossfight not initiated)");
+            System.out.println("Není důvod nabíjet. (Bossfight není aktivní)");
             return;
         }
 
         game.Player player = game.getPlayer();
         if (player.getAmmoReserve() <= 0) {
-            System.out.println("Nemáš náhradní munici!");
+            System.out.println("Nemáš náhradní munici! (Rezerva je prázdná)");
             return;
         }
+
+        /*
+         * Reload the magazine
+         * Print new ammo count
+         */
         
         System.out.println("Přebíjíš...");
         player.reload();
@@ -33,6 +38,10 @@ public class PrebitCommand implements Command {
                 game.setGameOver(true);
             }
         }
+
+        /*
+         * Set player defending to false
+         */
         game.setPlayerDefending(false);
     }
 

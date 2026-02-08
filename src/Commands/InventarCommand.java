@@ -3,7 +3,9 @@ package Commands;
 import game.Game;
 
 public class InventarCommand implements Command {
-
+/*
+ * Print inventory
+ */
     @Override
     public void execute(Game game, String[] args) {
         game.Player player = game.getPlayer();

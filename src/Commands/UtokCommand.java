@@ -12,8 +12,8 @@ public class UtokCommand implements Command {
         }
 
         game.Player player = game.getPlayer();
-        if (!player.hasItem("zbran")) { 
-            System.out.println("Nemáš zbraň!");
+        if (!player.hasItem("item_weapon")) { 
+            System.out.println("Nemáš zbraň! (Potřebuješ Služební zbraň)");
             return;
         }
 
@@ -22,14 +22,21 @@ public class UtokCommand implements Command {
             return;
         }
 
-        player.decrementMagazine();
+        /*
+         * Shoot the boss and use one bullet.
+         * If the boss has 0 health, the fight ends.
+         */
+        player.decreaseMagazine();
         int damage = (int)(Math.random() * 10) + 5; 
         game.damageBoss(damage);
-        System.out.println("Vystřelil jsi! Boss utrpěl " + damage + " poškození. (Boss HP: " + game.getBossHp() + ")");
+        System.out.println("Vystřelil jsi! (Zbývá nábojů: " + player.getCurrentMagazine() + "/3)");
+        System.out.println("Boss utrpěl " + damage + " poškození. (Boss HP: " + game.getBossHp() + ")");
 
         if (game.getBossHp() <= 0) {
-            System.out.println("BRAVO! Porazil jsi bosse a zachránil směnu!");
-            game.setGameOver(true);
+            System.out.println("Černohorský padl k zemi. Je konec... ale jen pro něj.");
+            System.out.println("Teď musíš zavolat pomoc. Vysílač je ve sklepě.");
+            game.setBossDefeated(true);
+            game.setBossFightActive(false);
             return;
         }
 

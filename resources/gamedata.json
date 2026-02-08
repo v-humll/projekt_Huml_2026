@@ -62,14 +62,14 @@
             "name": "Detektiv Černohorský",
             "role": "enemy",
             "homeLocationId": "loc_cely",
-            "notes": "Zkorumpovaná troska. Hlavní antagonista."
+            "notes": "Zkorumpovaná troska. Hlavní enemy."
         }
     ],
     "locations": [
         {
             "id": "loc_recepce",
             "name": "Recepce",
-            "description": "Tmavý prostor se zamčeným hlavním vchodem. Slouží jako úvodní orientační bod.",
+            "description": "Recepce je temná a opuštěná. Déšť bičuje okna a hrom otřásá skly. Hlavní vchod je zamčený. Na pultech se válí rozházené papíry.",
             "neighbors": {
                 "sever": "loc_chodba",
                 "jih": "loc_sklep",
@@ -82,7 +82,7 @@
         {
             "id": "loc_chodba",
             "name": "Chodba",
-            "description": "Spojnice mezi jednotlivými místnostmi. Neutrální, ale nebezpečný prostor.",
+            "description": "Dlouhá, vrzající chodba plná stínů. Bývalá chlouba stanice, nyní jen prach a pavučiny. Máš pocit, že tě někdo sleduje.",
             "neighbors": {
                 "jih": "loc_recepce",
                 "zapad": "loc_kancelar",
@@ -93,7 +93,7 @@
         {
             "id": "loc_satny",
             "name": "Šatny",
-            "description": "Zanedbaná místnost plná osobních věcí bývalých policistů.",
+            "description": "Řady kovových skříněk. Vzduch je cítit potem a starým tabákem. Někde tu musí být zapomenutá výbava po kolegách.",
             "neighbors": {
                 "zapad": "loc_recepce"
             },
@@ -105,7 +105,7 @@
         {
             "id": "loc_sklep",
             "name": "Sklep",
-            "description": "Technická část budovy s generátorem a pojistkami.",
+            "description": "Vlhký a studený sklep. Ze tmy vystupuje obrys starého generátoru a skříňka s pojistkami. V rohu u vysílače něco bliká.",
             "neighbors": {
                 "sever": "loc_recepce",
                 "zapad": "loc_cely"
@@ -117,7 +117,7 @@
         {
             "id": "loc_archiv",
             "name": "Archiv",
-            "description": "Klíčová příběhová lokace. Bez baterky nepřístupná.",
+            "description": "Místo plné zaprášených spisů a starých tajemství. Vzduch je těžký a zatuchlý. Bez světla bys tu nic nenašel.",
             "neighbors": {
                 "zapad": "loc_chodba"
             },
@@ -128,19 +128,16 @@
         {
             "id": "loc_kancelar",
             "name": "Kancelář náčelníka",
-            "description": "Luxusní místnost, definice korupce. Obsahuje trezor.",
+            "description": "Kancelář náčelníka, dříve symbol moci, nyní luxusní cela korupce. Na stole leží drahé doutníky. V rohu stojí masivní trezor.",
             "neighbors": {
                 "vychod": "loc_chodba"
             },
-            "lootTable": [
-                "item_recorder",
-                "item_weapon"
-            ]
+            "lootTable": []
         },
         {
             "id": "loc_cely",
             "name": "Cely a Výslechová",
-            "description": "Klaustrofobní prostředí určené pro finální konfrontaci.",
+            "description": "Cely předběžného zadržení. Mříže jsou rezavé a zdi nasáklé zoufalstvím. Ideální místo pro poslední souboj.",
             "neighbors": {
                 "vychod": "loc_sklep"
             },

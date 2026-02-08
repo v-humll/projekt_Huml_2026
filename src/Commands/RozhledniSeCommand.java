@@ -10,6 +10,7 @@ public class RozhledniSeCommand implements Command {
         if (loc != null) {
             System.out.println("Nacházíš se: " + loc.getName());
             System.out.println("Popis: " + loc.getDescription());
+            System.out.println("Lokace vedle: " + loc.getNeighbors());
         } else {
             System.out.println("Jsi v prázdnotě.");
         }

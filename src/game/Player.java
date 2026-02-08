@@ -57,7 +57,7 @@ public class Player {
         return currentMagazine;
     }
 
-    public void decrementMagazine() {
+    public void decreaseMagazine() {
         if (currentMagazine > 0) {
             currentMagazine--;
         }

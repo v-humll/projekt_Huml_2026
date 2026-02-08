@@ -5,6 +5,10 @@ import game.Item;
 
 public class PolozCommand implements Command {
 
+    /*
+     * Drop an item from inventory to current location
+     */
+    
     @Override
     public void execute(Game game, String[] args) {
         if (args.length < 2) {

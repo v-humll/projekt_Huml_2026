@@ -18,6 +18,10 @@ public class VezmiCommand implements Command {
         String itemToRemove = null;
         game.Item foundItem = null;
 
+        /*
+         * Look through items in the room.
+         * If we find the item we want, remember it so we can pick it up.
+         */
         if (loot != null) {
             for (String itemId : loot) {
                 game.Item it = game.getWorld().findItem(itemId);

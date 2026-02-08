@@ -30,6 +30,10 @@ public class Game {
         return bossFightActive;
     }
 
+    public void setBossFightActive(boolean active) {
+        this.bossFightActive = active;
+    }
+
     public void startBossFight() {
         this.bossFightActive = true;
         this.bossHp = MAX_BOSS_HP;
@@ -56,9 +60,35 @@ public class Game {
             this.playerHp = 0;
     }
 
+    public void healPlayer() {
+        this.playerHp = MAX_PLAYER_HP;
+    }
+
     public void setGameOver(boolean gameOver) {
         this.gameOver = gameOver;
     }
+
+    // Game State Flags
+    private boolean powerRestored = false;
+    private boolean archiveUnlocked = false;
+    private boolean bossDefeated = false;
+    private boolean safeOpened = false;
+    private boolean kohoutInteracted = false;
+
+    public boolean isPowerRestored() { return powerRestored; }
+    public void setPowerRestored(boolean v) { this.powerRestored = v; }
+    
+    public boolean isArchiveUnlocked() { return archiveUnlocked; }
+    public void setArchiveUnlocked(boolean v) { this.archiveUnlocked = v; }
+    
+    public boolean isBossDefeated() { return bossDefeated; }
+    public void setBossDefeated(boolean v) { this.bossDefeated = v; }
+
+    public boolean isSafeOpened() { return safeOpened; }
+    public void setSafeOpened(boolean v) { this.safeOpened = v; }
+
+    public boolean isKohoutInteracted() { return kohoutInteracted; }
+    public void setKohoutInteracted(boolean v) { this.kohoutInteracted = v; }
 
     public java.util.Map<String, Commands.Command> getCommandsMap() {
         return commands;
@@ -117,6 +147,16 @@ public class Game {
 
     public void start() {
         inicialization();
+        System.out.println("===============================================================================");
+        System.out.println("                              POSLEDNÍ SMĚNA");
+        System.out.println("===============================================================================");
+        System.out.println("\nJsi Tomáš, řadový policista, a tohle měl být jen další nudný večer.");
+        System.out.println("Jenže pak přišla bouře. Hrom otřásl plášťem budovy a světla zhasla.");
+        System.out.println("Teď jsi tu potmě. Sám... nebo možná ne.");
+        System.out.println("\n[TIP]: Bez elektřiny nic neuvidíš. Někde ve sklepě by měl být starý generátor.");
+        System.out.println("       Ale nejdřív musíš najít něco, čím si posvítíš na cestu.");
+        System.out.println("\nOvládání: 'napoveda' pro seznam příkazů.");
+        System.out.println("===============================================================================\n");
         System.out.println("Hra začala!");
         if (player.getLocation() != null) {
             System.out.println("Nacházíš se: " + player.getLocation().getName());
