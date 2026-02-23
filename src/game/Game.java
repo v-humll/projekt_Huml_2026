@@ -3,7 +3,7 @@ package game;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class Game {
+public class    Game {
 
     private GameData world;
     private Player player;
