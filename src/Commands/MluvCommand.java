@@ -46,7 +46,7 @@ public class MluvCommand implements Command {
                          game.setKohoutInteracted(true);
                      }
                 } else {
-                    // Default behavior for other NPCs (e.g. Cernohorsky before fight?)
+                    // Default behavior for other NPCs
                     System.out.println(npc.getName() + " říká: \"" + npc.getDialog() + "\"");
                 }
                 found = true;

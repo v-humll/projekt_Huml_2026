@@ -3,7 +3,7 @@ package game;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class    Game {
+public class Game {
 
     private GameData world;
     private Player player;
@@ -75,20 +75,45 @@ public class    Game {
     private boolean safeOpened = false;
     private boolean kohoutInteracted = false;
 
-    public boolean isPowerRestored() { return powerRestored; }
-    public void setPowerRestored(boolean v) { this.powerRestored = v; }
-    
-    public boolean isArchiveUnlocked() { return archiveUnlocked; }
-    public void setArchiveUnlocked(boolean v) { this.archiveUnlocked = v; }
-    
-    public boolean isBossDefeated() { return bossDefeated; }
-    public void setBossDefeated(boolean v) { this.bossDefeated = v; }
+    public boolean isPowerRestored() {
+        return powerRestored;
+    }
 
-    public boolean isSafeOpened() { return safeOpened; }
-    public void setSafeOpened(boolean v) { this.safeOpened = v; }
+    public void setPowerRestored(boolean v) {
+        this.powerRestored = v;
+    }
 
-    public boolean isKohoutInteracted() { return kohoutInteracted; }
-    public void setKohoutInteracted(boolean v) { this.kohoutInteracted = v; }
+    public boolean isArchiveUnlocked() {
+        return archiveUnlocked;
+    }
+
+    public void setArchiveUnlocked(boolean v) {
+        this.archiveUnlocked = v;
+    }
+
+    public boolean isBossDefeated() {
+        return bossDefeated;
+    }
+
+    public void setBossDefeated(boolean v) {
+        this.bossDefeated = v;
+    }
+
+    public boolean isSafeOpened() {
+        return safeOpened;
+    }
+
+    public void setSafeOpened(boolean v) {
+        this.safeOpened = v;
+    }
+
+    public boolean isKohoutInteracted() {
+        return kohoutInteracted;
+    }
+
+    public void setKohoutInteracted(boolean v) {
+        this.kohoutInteracted = v;
+    }
 
     public java.util.Map<String, Commands.Command> getCommandsMap() {
         return commands;
@@ -96,6 +121,10 @@ public class    Game {
 
     public GameData getWorld() {
         return world;
+    }
+
+    public void setWorld(GameData world) {
+        this.world = world;
     }
 
     public Player getPlayer() {
